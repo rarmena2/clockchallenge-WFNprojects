@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roberto's Clock | WFN</title>
+    <link href="clock.css" rel="stylesheet">
+</head>
+
+<body>
+    <h1>what time is it?</h1>
+    <h2>sorry zac efron, it's NOT summertime (well ya, but that's not the answer we're looking for). it's....</h2>
+    <div id="clock">10:24:35</div>
+
+    <script>
+    function displayTime() {
+
+        var today = new Date();
+
+        var hours = today.getHours();
+        var minutes = today.getMinutes();
+        if (minutes < 10) {
+            minutes = "0" + today.getMinutes();
+        }
+        var seconds = today.getSeconds();
+        if (seconds < 10) {
+            seconds = "0" + today.getSeconds();
+        }
+        
+        var time = hours + ":" + minutes + ":" + seconds + " am";
+        if (hours >= 12) {
+            time = (hours - 12) + ":" + minutes + ":" + seconds + " pm";
+        }
+
+        document.getElementById('clock').innerHTML = time;
+        var t = setTimeout(displayTime, 1000)
+    }
+    displayTime();
+    </script>
+
+    <p id="footnote">p.s. my coding skills do not seem to be advanced enough for a clock with sticks yet so you'll just be getting the digital one from me today - roberto</p>
+
+</body>
+
+</html>
